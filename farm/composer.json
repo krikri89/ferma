@@ -1,0 +1,16 @@
+{
+  "name": "app/db",
+  "description": "How much is the fish",
+  "autoload": {
+    "psr-4": {
+      "Farm\\": "src/app"
+    }
+  },
+  "authors": [
+    {
+      "name": "Kristina Rudyte",
+      "email": "rkristina32@yahoo.com"
+    }
+  ],
+  "require": {}
+}
