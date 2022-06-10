@@ -21,8 +21,12 @@ class App
     }
     private static function route(array $uri)
     {
+        $m = $_SERVER['REQUEST_METHOD'];
         if (count($uri) == 1 && $uri[0] === '') {
             return (new Homecontroller)->index();
+        }
+        if ('GET' == $m && count($uri) == 1 && $uri[0] === 'forma') {
+            return (new HomeController)->form();
         } else {
             echo 'kita';
         }
