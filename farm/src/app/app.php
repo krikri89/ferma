@@ -17,7 +17,7 @@ class App
         session_start();
         Messages::init();
         ob_start();
-        $uri = str_replace('kukufarm/', '', $_SERVER['REQUEST_URI']);
+        // $uri = str_replace('kukufarm/', '', $_SERVER['REQUEST_URI']);
         $uri = explode('/', $_SERVER['REQUEST_URI']);
         array_shift($uri);
         self::route($uri);
@@ -49,7 +49,7 @@ class App
             return (new HomeController)->index();
         }
 
-        if ('POST' == $m && count($uri) == 1 && $uri[0] === 'home') {
+        if ('POST' == $m && count($uri) == 1 && $uri[0] === '') {
             return (new HomeController)->keep();
         }
         if ('GET' == $m && count($uri) == 1 && $uri[0] === 'list') {

@@ -12,10 +12,10 @@ require __DIR__ . '/top.php';
             <span><?= $pet['animals'] ?></span>
             <span><?= $pet['svoris'] ?> kg</span>
             <div>
-                <form action="" method="post">
+                <form action="<?= 'http://kukufarm.lt/delete/' . $pet['id'] ?>" method="post">
                     <button type="submit">Delete</button>
                 </form>
-                <a href="">Edit</a>
+                <a href="<?= 'http://kukufarm.lt/edit/' . $pet['id'] ?>">Edit</a>
             </div>
         </li>
     <?php endforeach ?>

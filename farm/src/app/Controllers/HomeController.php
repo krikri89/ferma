@@ -25,8 +25,8 @@ class HomeController
         }
         $account = [];
         $account = [
-            'animals' => ($post['animals'] ?? 0),
-            'svoris' => ($post['svoris'] ?? 0)
+            'animals' => ($_POST['animals'] ?? 0),
+            'svoris' => ($_POST['svoris'] ?? 0)
         ];
         Json::get()->create($account);
         return App::redirect('list');
@@ -49,6 +49,6 @@ class HomeController
         $animalData = Json::get()->show($id);
         $animalData['svoris'] = $_POST['add'];
         Json::get()->update($id, $animalData);
-        return App::redirect('lsit');
+        return App::redirect('list');
     }
 }
