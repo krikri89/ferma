@@ -1,36 +1,38 @@
 <?php
 
-namespace Farm\Controller;
+namespace App\DB;
 
-use Farm\Controllers\HomeController;
-use App\DB;
+use App\DB\DataBase;
 
-class DataController
+class Json implements DataBase
 {
     private $data, $file;
-    public function __construct($file)
+    private static $me;
+    public static function get()
     {
-        $this->file = $file;
-        if (!file_exists(__DIR__ . '/data/' . $file . '.json')) {
-            file_put_contents(__DIR__ . '/data/' . $file . '.json', json_encode([]));
-            file_put_contents(__DIR__ . '/data/' . $file . '_id.json', 0);
+        return self::$me ?? new self;
+    }
+    public function __construct()
+    {
+        if (!file_exists(__DIR__ . '/../../data/list.json')) {
+            file_put_contents(__DIR__ . '/../../data/list.json', json_encode([]));
+            file_put_contents(__DIR__ . '/../../data/animal_id.json', 0);
         }
-        $this->data = json_decode(file_get_contents(__DIR__ . '/data/' . $file . '.json'), 1);
+        $this->data = json_decode(file_get_contents(__DIR__ . '/../../data/list.json'), 1);
     }
     public function __destruct()
     {
-        file_put_contents(__DIR__ . '/data/' . $this->file . '.json', json_encode($this->data));
+        file_put_contents(__DIR__ . '/../../data/list.json', json_encode($this->data));
     }
     private function getId()
     {
-        $id = (int) file_get_contents(__DIR__ . '/data/' . $this->file . '_id.json');
+        $id = (int)file_get_contents(__DIR__ . '/../../data/animal_id.json');
         $id++;
-        file_put_contents(__DIR__ . '/data/' . $this->file . '_id.json', $id);
+        file_put_contents(__DIR__ . '/../../data/animal_id.json', $id);
         return $id;
     }
     public function create(array $data): void
     {
-        
         $data['id'] = $this->getId();
         $this->data[] = $data;
     }
@@ -45,7 +47,6 @@ class DataController
                 return $data;
             }
         }
-        return [];
     }
     public function delete(int $id): void
     {

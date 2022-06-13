@@ -4,32 +4,51 @@ namespace Farm\Controllers;
 
 use Farm\Messages as M;
 use Farm\App;
+use App\DB\Json;
 
 class HomeController
 {
-    public function form() //get 
+    public function index() //get 
     {
-        return App::view('form', ['messages' => M::get()]);
+        return App::view('home', ['title' => 'Farm', 'messages' => M::get()]);
     }
 
-    public function doform() // post
+    public function list() // post
     {
-        M::add('Sas sukurta', 'alert');
-        // $id = '';
-        $animal = '';
-        $svoris = '';
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (!file_exists(__DIR__ . "/../../data/animalData.json")) {
-                file_put_contents(__DIR__ . "/../../data/animalData.json", json_encode([]));
-            }
-
-
-            // $listofAnimals = json_decode(file_get_contents(__DIR__ . "/../../data/animalData.json"), TRUE);
-            file_put_contents(__DIR__ . "/../../data/animalData.json", json_encode([
-                [...$_POST, "animal" => $animal, "svoris" => $svoris]
-            ]));
-            return App::redirect('home');
+        $pets = Json::get()->showAll();
+        return App::view('list', ['title' => 'Farm', 'pets' => $pets]);
+    }
+    public function keep()
+    {
+        if ($_POST['add'] <= 0) {
+            return App::redirect('');
         }
+        $account = [];
+        $account = [
+            'animals' => ($post['animals'] ?? 0),
+            'svoris' => ($post['svoris'] ?? 0)
+        ];
+        Json::get()->create($account);
+        return App::redirect('list');
     }
-   
+    public function deleteAccount(string $id)
+    {
+        Json::get()->delete($id);
+        return App::redirect('list');
+    }
+    public function toAdd(string $id)
+    {
+        $pets = Json::get()->show($id);
+        return App::view('edit', ['title' => 'Farm', 'pets' => $pets]);
+    }
+    public function add(string $id)
+    {
+        if ($_POST['add'] <= 0) {
+            return App::redirect("edit/$id");
+        }
+        $animalData = Json::get()->show($id);
+        $animalData['svoris'] = $_POST['add'];
+        Json::get()->update($id, $animalData);
+        return App::redirect('lsit');
+    }
 }
