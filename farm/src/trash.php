@@ -1,4 +1,4 @@
- <!-- if ('GET' == $m && count($uri) == 1 && $uri[0] === 'all') {
+ if ('GET' == $m && count($uri) == 1 && $uri[0] === 'all') {
             echo '<h1>All users</h1>'; //duomenu atvaizdavimas, taip nedaryti
             return (new HomeController)->showAll();
             //             // foreach ($db->showAll() as $pet) {
@@ -85,4 +85,4 @@
                         $pet['animal'] = $_POST['animal'];
                         $db->create($pet);
                         header('Location:' . DOMAIN . 'all'); // redirectinam kur gris po create
-                        die; -->
+                        die;

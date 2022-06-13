@@ -3,7 +3,8 @@
   "description": "How much is the fish",
   "autoload": {
     "psr-4": {
-      "Farm\\": "src/app"
+      "Farm\\": "src/app",
+      "App\\DB\\": "src"
     }
   },
   "authors": [

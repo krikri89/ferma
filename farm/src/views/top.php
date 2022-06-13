@@ -10,7 +10,8 @@
 </head>
 
 <body>
-    <?php require __DIR__ . '/messages.php' ?>
+    <a href="http://kukufarm.lt/">Create</a>
+    <a href="http://kukufarm.lt/list">List of animals</a>
 </body>
 
 </html>

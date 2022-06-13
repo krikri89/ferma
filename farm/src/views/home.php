@@ -6,7 +6,19 @@ require __DIR__ . '/top.php';
 
 ?>
 
-<h1>Sheep</h1>
+<h1>Farm</h1>
+
+<form method="POST">
+    Svoris
+    <input type="number" name="svoris">
+    <select name="animals" id="animals">
+        <option value="">--Select--</option>
+        <option value="Avis">Avis</option>
+        <option value="Antis">Antis</option>
+        <option value="Antilope">Antilope</option>
+    </select>
+    <button type="submit">Create</button>
+</form>
 
 <?php
 
