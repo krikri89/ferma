@@ -6,7 +6,7 @@ use App\DB\DataBase;
 
 class Json implements DataBase
 {
-    private $data, $file;
+    private $data;
     private static $me;
     public static function get()
     {
