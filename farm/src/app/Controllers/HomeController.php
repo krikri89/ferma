@@ -2,9 +2,10 @@
 
 namespace Farm\Controllers;
 
+use App\DB\Json;
 use Farm\Messages as M;
 use Farm\App;
-use App\DB\Json;
+
 
 class HomeController
 {
@@ -16,14 +17,13 @@ class HomeController
     public function list() // post
     {
         $pets = Json::get()->showAll();
-        return App::view('list', ['title' => 'Farm', 'pets' => $pets]);
+        return App::view('list', ['title' => 'Farm', 'animals' => $pets]);
     }
     public function keep()
     {
-        if ($_POST['add'] <= 0) {
+        if ($_POST['svoris'] <= 0) {
             return App::redirect('');
         }
-        $account = [];
         $account = [
             'animals' => ($_POST['animals'] ?? 0),
             'svoris' => ($_POST['svoris'] ?? 0)

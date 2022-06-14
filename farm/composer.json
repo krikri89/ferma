@@ -4,7 +4,7 @@
   "autoload": {
     "psr-4": {
       "Farm\\": "src/app",
-      "App\\DB\\": "src"
+      "App\\DB\\": "src/app/"
     }
   },
   "authors": [
