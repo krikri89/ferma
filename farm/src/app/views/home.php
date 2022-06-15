@@ -7,7 +7,7 @@ require __DIR__ . '/top.php';
 ?>
 
 <h1>Farm</h1>
-
+<div><img src="http://kukufarm.lt/sheep.jpg" alt=""></div>
 <form method="POST">
     Svoris
     <input type="number" name="svoris">

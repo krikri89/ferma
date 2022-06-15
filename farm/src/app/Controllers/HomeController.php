@@ -17,7 +17,7 @@ class HomeController
     public function list() // post
     {
         $pets = Json::get()->showAll();
-        return App::view('list', ['title' => 'Farm', 'animals' => $pets]);
+        return App::view('list', ['title' => 'Farm', 'account' => $pets]);
     }
     public function keep()
     {
@@ -47,7 +47,7 @@ class HomeController
             return App::redirect("edit/$id");
         }
         $animalData = Json::get()->show($id);
-        $animalData['svoris'] = $_POST['add'];
+        $animalData['svoris'] = $_POST['svoris'];
         Json::get()->update($id, $animalData);
         return App::redirect('list');
     }

@@ -7,7 +7,7 @@ require __DIR__ . '/top.php';
 ?>
 <h1>List of animals</h1>
 <ul>
-    <?php foreach ($animals as $key => $pet) : ?>
+    <?php foreach ($account as $key => $pet) : ?>
         <li>
             <span><?= $pet['animals'] ?></span>
             <span><?= $pet['svoris'] ?> kg</span>
