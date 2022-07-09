@@ -39,7 +39,7 @@ class HomeController
     public function toAdd(string $id)
     {
         $pets = Json::get()->show($id);
-        return App::view('edit', ['title' => 'Farm', 'pets' => $pets]);
+        return App::view('edit', ['title' => 'Farm', 'account' => $pets]);
     }
     public function add(string $id)
     {

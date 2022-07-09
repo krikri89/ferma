@@ -1,0 +1,37 @@
+.fonts {
+  font-size: 15px;
+}
+.bege {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.content2 {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 40px;
+  align-items: center;
+}
+.modal {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.msg {
+  color: red;
+}
+.good {
+  color: green;
+}
+.bad {
+  color: red;
+}
+.marg {
+  display: flex;
+  justify-content: space-between;
+}

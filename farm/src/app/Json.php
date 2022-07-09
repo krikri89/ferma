@@ -60,8 +60,8 @@ class Json implements DataBase
     }
     public function update(int $id, array $data): void
     {
-        foreach ($this->data as $key => $value) {
-            if ($value['id'] == $id) {
+        foreach ($this->data as $key => $pet) {
+            if ($pet['id'] == $id) {
                 $this->data[$key] = $data;
                 break;
             }
