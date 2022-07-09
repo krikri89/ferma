@@ -1,0 +1,17 @@
+{
+    "name": "kristina/ferma",
+    "autoload": {
+        "psr-4": {
+            "Kristina\\Ferma\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kristina Rudyte",
+            "email": "rkristina32@yahoo.com"
+        }
+    ],
+    "require": {
+        "laravel/ui": "^3.4"
+    }
+}

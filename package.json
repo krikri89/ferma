@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "vue-loader": "^17.0.0"
+  }
+}
