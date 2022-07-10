@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('farms', function (Blueprint $table) {
             $table->id();
+            $table->string('farm', 10);
+            $table->integer('weight');
             $table->timestamps();
         });
     }

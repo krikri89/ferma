@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Farm;
-use App\Http\Requests\StoreFarmRequest;
-use App\Http\Requests\UpdateFarmRequest;
+use Illuminate\Http\Request;
+
+
 
 class FarmController extends Controller
 {
@@ -15,7 +16,8 @@ class FarmController extends Controller
      */
     public function index()
     {
-        //
+        $farms = Farm::all();
+        return view('animals.index', ['farms' => $farms]);
     }
 
     /**
@@ -25,18 +27,22 @@ class FarmController extends Controller
      */
     public function create()
     {
-        //
+        return view('animals.form');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreFarmRequest  $request
+     * @param  \App\Http\Requests\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFarmRequest $request)
+    public function store(Request $request)
     {
-        //
+        $farm = new Farm;
+
+        $farm->farm = $request->create_animal_input;
+        $farm->save();
+        return redirect()->route('animals.index');
     }
 
     /**
@@ -58,19 +64,21 @@ class FarmController extends Controller
      */
     public function edit(Farm $farm)
     {
-        //
+        return view('animals.edit', ['farm' => $farm]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateFarmRequest  $request
+     * @param  \App\Http\Requests\Request  $request
      * @param  \App\Models\Farm  $farm
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateFarmRequest $request, Farm $farm)
+    public function update(Request $request, Farm $farm)
     {
-        //
+        $farm->farm = $request->create_animal_input;
+        $farm->save();
+        return redirect()->route('animals-index');
     }
 
     /**
@@ -81,6 +89,7 @@ class FarmController extends Controller
      */
     public function destroy(Farm $farm)
     {
-        //
+        $farm->delete();
+        return redirect()->route('animals-index');
     }
 }
