@@ -1,0 +1,19 @@
+.animals_list {
+    background-color: grey;
+}
+
+.list_buttons {
+    background-color: aquamarine;
+}
+
+.empty {
+    font-size: 100px;
+    color: red;
+}
+.alert-success {
+    background-color: rgb(36, 160, 129);
+}
+
+.alert-deleted {
+    background-color: rgb(222, 172, 79);
+}
