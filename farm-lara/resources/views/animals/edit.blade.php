@@ -3,7 +3,8 @@
 <ul>
     <form action="{{route('animals-update', $farm)}}" method="post">
 
-        <input type="animal" name="create_animal_input" value="{{$farm->farm}}:{{$farm->weight}}" />
+        <input type="text" name="create_animal_input" value="{{$farm->farm}}" />
+        <input type="number" name="create_weight" value="{{$farm->weight}}" />
         @csrf
         @method('put')
         <button type="submit">Update</button>

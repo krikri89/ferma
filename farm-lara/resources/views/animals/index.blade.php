@@ -5,8 +5,11 @@
     @forelse($farms as $farm)
     <li>
         <div>{{$farm->farm}}:{{$farm->weight}} KG</div>
-        <a href="{{route('animals-edit', $farm)}}">|EDIT|</a>
-        <form class="delete" action="{{route('animals-delete', $farm)}}" method="post">
+
+        <a href="{{route('animals-edit', $farm->id)}}">EDIT</a>
+
+
+        <form class="delete" action="{{route('animals-delete', $farm->id)}}" method="post">
             @csrf
             @method('delete')
             <button type="submit">Remove from the list</button>

@@ -21,13 +21,13 @@ class FarmController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the create for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('animals.form');
+        return view('animals.create');
     }
 
     /**
@@ -41,8 +41,9 @@ class FarmController extends Controller
         $farm = new Farm;
 
         $farm->farm = $request->create_animal_input;
+        $farm->weight = $request->create_weight ?? 'need to weight';
         $farm->save();
-        return redirect()->route('animals.index');
+        return redirect()->route('animals-index');
     }
 
     /**
@@ -77,6 +78,8 @@ class FarmController extends Controller
     public function update(Request $request, Farm $farm)
     {
         $farm->farm = $request->create_animal_input;
+        $farm->weight = $request->create_weight ?? 'need to weight';
+
         $farm->save();
         return redirect()->route('animals-index');
     }
