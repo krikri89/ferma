@@ -10,7 +10,8 @@
 </head>
 
 <body>
+    @include('msg.main')
+    @include('parts.links')
     @yield('content')
-
 </body>
 </html>

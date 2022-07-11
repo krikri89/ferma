@@ -4,7 +4,7 @@
 <ul>
     @forelse($farms as $farm)
     <li>
-        <div>{{$farm->farm}}:{{$farm->weight}} KG</div>
+        <div>{{$farm->farm}}: {{$farm->weight}} kg</div>
 
         <a href="{{route('animals-edit', $farm->id)}}">EDIT</a>
 
@@ -19,5 +19,4 @@
     <li>Sheep gone wild</li>
     @endforelse
 </ul>
-<a href="{{route('animals-create')}}">Add more animals to the farm</a>
 @endsection

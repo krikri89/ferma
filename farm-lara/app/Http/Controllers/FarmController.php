@@ -16,7 +16,9 @@ class FarmController extends Controller
      */
     public function index()
     {
-        $farms = Farm::all();
+        $farms = Farm::orderBy('farm')->get();
+        // $farms = Farm::all();
+
         return view('animals.index', ['farms' => $farms]);
     }
 
@@ -43,7 +45,7 @@ class FarmController extends Controller
         $farm->farm = $request->create_animal_input;
         $farm->weight = $request->create_weight ?? 'need to weight';
         $farm->save();
-        return redirect()->route('animals-index');
+        return redirect()->route('animals-index')->with('success', 'Well done!');
     }
 
     /**
@@ -93,6 +95,6 @@ class FarmController extends Controller
     public function destroy(Farm $farm)
     {
         $farm->delete();
-        return redirect()->route('animals-index');
+        return redirect()->route('animals-index')->with('deleted', 'oh nooo!');
     }
 }
