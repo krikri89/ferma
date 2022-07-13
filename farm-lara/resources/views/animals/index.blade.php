@@ -6,6 +6,7 @@
     <li>
         <div class="animals_list">{{$farm->farm}}: {{$farm->weight}} kg</div>
         <div class="list_buttons">
+            <a href="{{route('animals-show', $farm->id)}}">SHOW</a>
             <a href="{{route('animals-edit', $farm->id)}}">EDIT</a>
             <form class="delete" action="{{route('animals-delete', $farm->id)}}" method="post">
                 @csrf

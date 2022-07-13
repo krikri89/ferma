@@ -54,9 +54,11 @@ class FarmController extends Controller
      * @param  \App\Models\Farm  $farm
      * @return \Illuminate\Http\Response
      */
-    public function show(Farm $farm)
+    public function show(int $farmId)
     {
-        //
+        $farm = Farm::where('id', $farmId)->first();
+
+        return view('animals.show', ['farm' => $farm]);
     }
 
     /**

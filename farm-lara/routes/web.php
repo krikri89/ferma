@@ -24,3 +24,4 @@ Route::post('/animals', [F::class, 'store'])->name('animals-store');
 Route::get('/animals/edit/{farm}', [F::class, 'edit'])->name('animals-edit');
 Route::put('/animals/{farm}', [F::class, 'update'])->name('animals-update');
 Route::delete('/animals/{farm}', [F::class, 'destroy'])->name('animals-delete');
+Route::get('/animals/show/{id}', [F::class, 'show'])->name('animals-show');
