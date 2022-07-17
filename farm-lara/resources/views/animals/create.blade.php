@@ -11,9 +11,11 @@
                     <form action="{{route('animals-store')}}" method="post">
                         <select type="text" name="create_animal_input">
 
-                            <option value="Avis">Avis</option>
-                            <option value="Antis">Antis</option>
+                            <option value="Avis">Sheep</option>
+                            <option value="Antis">Duck</option>
                             <option value="Antilope">Antilope</option>
+                            <option value="Horse">Horse</option>
+                            <option value="Lion">Lion</option>
                         </select>
                         kg <input type="number" name="create_weight">
                         @csrf
