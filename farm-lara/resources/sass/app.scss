@@ -1,8 +1,19 @@
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Nunito");
-
 // Variables
 @import "variables";
 
 // Bootstrap
 @import "bootstrap/scss/bootstrap";
+
+body {
+    font-family: "Lobster", cursive;
+}
+
+.list_buttons {
+    display: flex;
+}
+.animals_list {
+    font-size: 20px;
+}
+.controls {
+    display: flex;
+}
