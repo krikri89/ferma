@@ -1,4 +1,5 @@
-@extends('main')
+@extends('layouts.app')
+
 @section('content')
 <a href="{{route('animals-index')}}">Who's on the farm</a>
 
