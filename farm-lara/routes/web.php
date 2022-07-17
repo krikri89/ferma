@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FarmController as F;
+use Illuminate\Support\Facades\Auth;
 
 
 /*
@@ -26,6 +27,6 @@ Route::put('/animals/{farm}', [F::class, 'update'])->name('animals-update');
 Route::delete('/animals/{farm}', [F::class, 'destroy'])->name('animals-delete');
 Route::get('/animals/show/{id}', [F::class, 'show'])->name('animals-show');
 
-// Auth::routes();
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

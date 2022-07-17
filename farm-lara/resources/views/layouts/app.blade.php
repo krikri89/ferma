@@ -53,7 +53,7 @@
                         @endif
                         @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Animal
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -61,22 +61,7 @@
                                     Animal List
                                 </a>
                                 <a class="dropdown-item" href="{{ route('animals-create') }}">
-                                    New animal to the farm
-                                </a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Books
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('animals-index') }}">
-
-                                    Books List
-                                </a>
-                                <a class="dropdown-item" href="{{ route('animals-create') }}">
-
-                                    New Book
+                                    Add New animal to the farm
                                 </a>
                             </div>
                         </li>
@@ -89,13 +74,13 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                {{-- <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); --}}
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                    {{ __('Logout') }}
                                 </a>
 
-                                {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> --}}
-                                @csrf
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
                                 </form>
                             </div>
                         </li>
